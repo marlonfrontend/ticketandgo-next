@@ -1,4 +1,5 @@
 export * from './Button'
+export * from './Brand'
 export * from './Card'
 export * from './Container'
 export * from './Grid'

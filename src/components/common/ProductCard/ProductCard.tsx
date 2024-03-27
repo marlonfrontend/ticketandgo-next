@@ -3,10 +3,10 @@ import { ProductCardProps } from './ProductCard.types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const ProductCard = ({ title, price, thumb }: ProductCardProps) => {
+export const ProductCard = ({ id, title, price, thumb }: ProductCardProps) => {
   return (
     <Card>
-      <Link href="/" className="h-[200px] mb-5">
+      <Link href={`/product/${id}`} className="h-[200px] mb-5">
         <Image
           src={thumb}
           width={200}

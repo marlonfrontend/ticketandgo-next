@@ -15,6 +15,7 @@ export const ProductList = () => {
       {productList?.map((item) => (
         <GridItem col={12} md={3} key={item.id}>
           <ProductCard
+            id={item.id}
             thumb={item.image}
             title={item.title}
             price={item.price}

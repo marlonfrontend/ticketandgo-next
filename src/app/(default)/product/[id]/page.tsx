@@ -1,6 +1,6 @@
 'use client'
 
-import { ProductDetail } from '@/components'
+import { ProductDetail, BackButton } from '@/components'
 import { useProduct } from '@/stores'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
@@ -18,7 +18,12 @@ const Page = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <ProductDetail item={product} />
+  return (
+    <>
+      <BackButton />
+      <ProductDetail item={product} />
+    </>
+  )
 }
 
 export default Page

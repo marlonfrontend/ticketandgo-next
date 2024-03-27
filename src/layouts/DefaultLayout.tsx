@@ -8,7 +8,7 @@ export const DefaultLayout = ({ children }: PropsWithChildren) => {
   return (
     <ProductProvider>
       <Header />
-      <main className="py-5">
+      <main className="py-10">
         <Container>{children}</Container>
       </main>
       <Footer />

@@ -9,6 +9,7 @@ import {
 } from 'react'
 import { ProductProviderProps, ProductContextProps } from './Product.types'
 import { getProducts, getProductById } from '@/services'
+import { toast } from 'react-toastify'
 import { Product } from '@/types'
 
 export const ProductContext = createContext<ProductContextProps>(
@@ -51,6 +52,7 @@ export const ProductProvider = ({
       return
     }
     setCartItems((prevCartItems) => [...prevCartItems, product])
+    toast.success('Produto adicionado ao carrinho')
   }
 
   const clearProduct = () => {

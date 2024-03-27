@@ -1,10 +1,20 @@
+'use client'
+
 import { Grid, GridItem, Button } from '@/components'
 import { ProductDetailProps } from './ProductDetail.types'
 import { useProduct } from '@/stores'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { Product } from '@/types'
 
 export const ProductDetail = ({ item }: ProductDetailProps) => {
   const { addCartItem } = useProduct()
+  const router = useRouter()
+
+  const createOrder = (product: Product) => {
+    addCartItem(product)
+    router.push('/cart')
+  }
 
   return (
     <>
@@ -20,6 +30,7 @@ export const ProductDetail = ({ item }: ProductDetailProps) => {
             />
           </div>
         </GridItem>
+
         <GridItem col={12} md={6}>
           <div className="md:pl-12">
             <h2 className="text-2xl font-semibold mb-5">{item?.title}</h2>
@@ -31,7 +42,9 @@ export const ProductDetail = ({ item }: ProductDetailProps) => {
               <Button color="secondary" onClick={() => addCartItem(item)}>
                 Adicionar ao carrinho
               </Button>
-              <Button color="secondary">Finalizar compra</Button>
+              <Button color="secondary" onClick={() => createOrder(item)}>
+                Finalizar compra
+              </Button>
             </Grid>
           </div>
         </GridItem>

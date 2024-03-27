@@ -1,7 +1,7 @@
 'use client'
 
 import { PropsWithChildren } from 'react'
-import { Header, Container } from '@/components'
+import { Header, Footer, Container } from '@/components'
 
 export const DefaultLayout = ({ children }: PropsWithChildren) => {
   return (
@@ -12,6 +12,7 @@ export const DefaultLayout = ({ children }: PropsWithChildren) => {
           {children}
         </Container>
       </main>
+      <Footer />
     </>
   )
 }

@@ -7,6 +7,7 @@ import {
   useState,
   useMemo,
 } from 'react'
+import useLocalStorage from 'use-local-storage'
 import { ProductProviderProps, ProductContextProps } from './Product.types'
 import { getProducts, getProductById } from '@/services'
 import { toast } from 'react-toastify'
@@ -22,7 +23,7 @@ export const ProductProvider = ({
   const [loadingProducts, setLoadingProducts] = useState(false)
   const [productList, setProductList] = useState<Product[]>([])
   const [product, setProduct] = useState<Product>()
-  const [cartItems, setCartItems] = useState<Product[]>([])
+  const [cartItems, setCartItems] = useLocalStorage<Product[]>('carItems', [])
 
   const cartTotal = useMemo(() => cartItems.length, [cartItems])
 
@@ -51,8 +52,17 @@ export const ProductProvider = ({
     if (cartItems.some((item) => item.id === product.id)) {
       return
     }
-    setCartItems((prevCartItems) => [...prevCartItems, product])
-    toast.success('Produto adicionado ao carrinho')
+    setCartItems((prevCartItems = []) => [...prevCartItems, product])
+    toast.success('Produto foi adicionado ao carrinho')
+  }
+
+  const removeCartItem = (product: Product) => {
+    setCartItems((prevCartItems = []) =>
+      prevCartItems.filter((item) => {
+        return item.id !== product.id
+      }),
+    )
+    toast.success('Produto foi removido do carrinho')
   }
 
   const clearProduct = () => {
@@ -67,8 +77,10 @@ export const ProductProvider = ({
         product,
         fetchProducts,
         fetchProductById,
+        removeCartItem,
         clearProduct,
         addCartItem,
+        cartItems,
         cartTotal,
       }}
     >

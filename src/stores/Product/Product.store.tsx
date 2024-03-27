@@ -3,7 +3,6 @@
 import { createContext, useContext, PropsWithChildren } from 'react'
 import { ProductProviderProps, ProductContextProps } from './Product.types'
 
-
 export const ProductContext = createContext<ProductContextProps>(
   {} as ProductContextProps,
 )
@@ -11,13 +10,8 @@ export const ProductContext = createContext<ProductContextProps>(
 export const ProductProvider = ({
   children,
 }: PropsWithChildren<ProductProviderProps>) => {
-
   return (
-    <ProductContext.Provider
-      value={{}}
-    >
-      {children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={{}}>{children}</ProductContext.Provider>
   )
 }
 

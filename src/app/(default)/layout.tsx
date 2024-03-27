@@ -14,9 +14,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <DefaultLayout>
-          {children}
-        </DefaultLayout>
+        <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>
   )

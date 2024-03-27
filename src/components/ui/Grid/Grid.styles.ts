@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants'
 
 export const GridStyle = tv({
-  base: 'flex flex-wrap -mx-3',
+  base: 'flex flex-wrap -mx-2',
   variants: {
     gap: {
       1: 'gap-y-1',
@@ -32,7 +32,7 @@ export const GridStyle = tv({
 })
 
 export const GridItemStyles = tv({
-  base: 'w-full px-3',
+  base: 'w-full px-2',
   variants: {
     col: {
       1: 'w-1/12',

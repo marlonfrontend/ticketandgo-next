@@ -1,4 +1,5 @@
 'use client'
+
 import { ProductDetail } from '@/components'
 import { useProduct } from '@/stores'
 import { useParams } from 'next/navigation'

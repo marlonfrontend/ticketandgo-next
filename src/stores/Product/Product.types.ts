@@ -7,6 +7,7 @@ export type ProductContextProps = {
 
   fetchProducts: () => void
   fetchProductById: (id: string) => void
+  clearProduct: () => void
 }
 
 export type ProductProviderProps = {}

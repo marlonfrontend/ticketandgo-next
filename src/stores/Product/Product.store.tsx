@@ -37,6 +37,10 @@ export const ProductProvider = ({
     }
   }
 
+  const clearProduct = () => {
+    setProduct(undefined)
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -45,6 +49,7 @@ export const ProductProvider = ({
         product,
         fetchProducts,
         fetchProductById,
+        clearProduct,
       }}
     >
       {children}

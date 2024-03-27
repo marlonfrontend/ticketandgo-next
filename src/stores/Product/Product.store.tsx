@@ -53,7 +53,7 @@ export const ProductProvider = ({
       return
     }
     setCartItems((prevCartItems = []) => [...prevCartItems, product])
-    toast.success('Produto foi adicionado ao carrinho')
+    toast.success('Produto adicionado ao carrinho')
   }
 
   const removeCartItem = (product: Product) => {
@@ -62,7 +62,7 @@ export const ProductProvider = ({
         return item.id !== product.id
       }),
     )
-    toast.success('Produto foi removido do carrinho')
+    toast.success('Produto removido do carrinho')
   }
 
   const clearProduct = () => {

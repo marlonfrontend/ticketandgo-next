@@ -4,8 +4,9 @@ import { PropsWithChildren } from 'react'
 import { Header, Footer, Container } from '@/components'
 import { ProductProvider } from '@/stores'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import { useIsMounted } from '@/hooks'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 export const DefaultLayout = ({ children }: PropsWithChildren) => {
   const isMounted = useIsMounted()

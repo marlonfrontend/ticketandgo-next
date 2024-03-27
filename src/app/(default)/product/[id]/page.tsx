@@ -21,7 +21,10 @@ const Page = () => {
   return (
     <>
       <BackButton />
+
       {product && <ProductDetail item={product} />}
+
+      {!product && <div className="text-center py-20 text-lg">Carregando</div>}
     </>
   )
 }

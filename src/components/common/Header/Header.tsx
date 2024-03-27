@@ -1,4 +1,4 @@
-import { Container, Brand } from '@/components'
+import { Container, Brand, Grid, ShoppingCart } from '@/components'
 import { HeaderStyle } from './Header.styles'
 
 export const Header = () => {
@@ -7,7 +7,10 @@ export const Header = () => {
   return (
     <header className={base()}>
       <Container>
-        <Brand />
+        <Grid justify="between" align="center">
+          <Brand />
+          <ShoppingCart />
+        </Grid>
       </Container>
     </header>
   )

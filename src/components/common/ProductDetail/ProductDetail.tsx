@@ -1,8 +1,11 @@
 import { Grid, GridItem, Button } from '@/components'
 import { ProductDetailProps } from './ProductDetail.types'
+import { useProduct } from '@/stores'
 import Image from 'next/image'
 
 export const ProductDetail = ({ item }: ProductDetailProps) => {
+  const { addCartItem } = useProduct()
+
   return (
     <>
       <Grid gap={5}>
@@ -25,7 +28,9 @@ export const ProductDetail = ({ item }: ProductDetailProps) => {
             </span>
             <div className="text-2xl font-medium my-5">R$ {item?.price}</div>
             <Grid gap={3}>
-              <Button color="secondary">Adicionar ao carrinho</Button>
+              <Button color="secondary" onClick={() => addCartItem(item)}>
+                Adicionar ao carrinho
+              </Button>
               <Button color="secondary">Finalizar compra</Button>
             </Grid>
           </div>

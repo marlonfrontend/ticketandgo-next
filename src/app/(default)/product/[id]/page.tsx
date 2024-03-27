@@ -21,7 +21,7 @@ const Page = () => {
   return (
     <>
       <BackButton />
-      <ProductDetail item={product} />
+      {product && <ProductDetail item={product} />}
     </>
   )
 }

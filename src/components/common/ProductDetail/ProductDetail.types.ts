@@ -1,5 +1,5 @@
 import { Product } from '@/types'
 
 export type ProductDetailProps = {
-  item?: Product
+  item: Product
 }

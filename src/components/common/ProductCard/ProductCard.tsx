@@ -16,7 +16,7 @@ export const ProductCard = ({ id, title, price, thumb }: ProductCardProps) => {
         />
       </Link>
       <div className="text-sm line-clamp-2 h-10">{title}</div>
-      <div className="text-xl font-semibold my-2">{price}</div>
+      <div className="text-xl font-semibold my-2">R$ {price}</div>
       <Button color="secondary">Comprar</Button>
     </Card>
   )

@@ -1,6 +1,12 @@
 'use client'
 
-import { createContext, useContext, PropsWithChildren, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  PropsWithChildren,
+  useState,
+  useMemo,
+} from 'react'
 import { ProductProviderProps, ProductContextProps } from './Product.types'
 import { getProducts, getProductById } from '@/services'
 import { Product } from '@/types'
@@ -15,6 +21,9 @@ export const ProductProvider = ({
   const [loadingProducts, setLoadingProducts] = useState(false)
   const [productList, setProductList] = useState<Product[]>([])
   const [product, setProduct] = useState<Product>()
+  const [cartItems, setCartItems] = useState<Product[]>([])
+
+  const cartTotal = useMemo(() => cartItems.length, [cartItems])
 
   const fetchProducts = async () => {
     setLoadingProducts(true)
@@ -37,6 +46,13 @@ export const ProductProvider = ({
     }
   }
 
+  const addCartItem = (product: Product) => {
+    if (cartItems.some((item) => item.id === product.id)) {
+      return
+    }
+    setCartItems((prevCartItems) => [...prevCartItems, product])
+  }
+
   const clearProduct = () => {
     setProduct(undefined)
   }
@@ -50,6 +66,8 @@ export const ProductProvider = ({
         fetchProducts,
         fetchProductById,
         clearProduct,
+        addCartItem,
+        cartTotal,
       }}
     >
       {children}

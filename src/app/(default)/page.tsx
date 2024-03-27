@@ -1,8 +1,9 @@
 'use client'
+import { ProductList } from "@/components"
 
 const Page = () => {
   return (
-    <div>page</div>
+    <ProductList />
   )
 }
 export default Page
